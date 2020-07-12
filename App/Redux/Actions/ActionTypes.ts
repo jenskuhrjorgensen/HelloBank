@@ -1,4 +1,4 @@
-import {Account} from "../../Model/Account"
+import {AccountById} from "../../Model/Account"
 
 export enum AccountActions {
     ACCOUNTS_SET = "ACCOUNTS_SET",
@@ -7,5 +7,5 @@ export enum AccountActions {
 
 export interface AccountsSetAction {
     type: AccountActions.ACCOUNTS_SET,
-    accounts: Array<Account>
+    accounts: AccountById,
 }
