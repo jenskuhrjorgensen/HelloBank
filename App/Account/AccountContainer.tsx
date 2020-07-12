@@ -3,7 +3,7 @@ import {useEffect} from "react"
 import {AccountsView} from "./AccountsView"
 import {useDispatch, useSelector} from "react-redux"
 import {getAccounts} from "../Redux/Actions/AccountActions"
-import {selectAccountList} from "../Redux/Selectors/AccountSelectors"
+import {selectAccountListFiltered} from "../Redux/Selectors/AccountSelectors"
 import {ROUTES} from "../Navigation/Routes"
 
 interface Props {
@@ -15,7 +15,7 @@ export function AccountContainer({navigation}: Props) {
     useEffect(() => {
         getData()
     }, [])
-    const accounts = useSelector(selectAccountList)
+    const accounts = useSelector(selectAccountListFiltered)
 
     const getData = () => {
         dispatch(getAccounts())

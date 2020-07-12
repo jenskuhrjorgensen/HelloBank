@@ -1,13 +1,11 @@
 import {Owner} from "./Owner"
 
-interface AccountDto {
+export interface AccountDto {
     id: string,
     name: string,
-    alias: string,
     description: string,
     balance: number,
     accountNumber: number,
-    registrationNumber: number,
     iban: number,
     owner: Owner,
     interestRate: number,
@@ -16,11 +14,9 @@ interface AccountDto {
 export interface Account {
     id: string,
     name: string,
-    alias: string,
     description: string,
     balance: number,
     accountNumber: number,
-    registrationNumber: number,
     iban: number,
     owner: string,
     interestRate: number,

@@ -4,6 +4,7 @@ import {createStackNavigator} from "@react-navigation/stack"
 import {AccountContainer} from "../Account/AccountContainer"
 import {AccountDetailContainer} from "../AccountDetail/AccountDetailContainer"
 import {ROUTES} from "./Routes"
+import {AccountsSearchHeaderContainer} from "../Components/SearchHeader/AccountsSearchHeaderContainer"
 
 
 const Stack = createStackNavigator()
@@ -12,7 +13,11 @@ export function AppNavigation() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name={ROUTES.accounts} component={AccountContainer}/>
+                <Stack.Screen
+                    name={ROUTES.accounts}
+                    component={AccountContainer}
+                    options={{headerTitle: ({children}) => <AccountsSearchHeaderContainer title={children}/>}}
+                />
                 <Stack.Screen name={ROUTES.accountDetail} component={AccountDetailContainer}/>
             </Stack.Navigator>
         </NavigationContainer>
