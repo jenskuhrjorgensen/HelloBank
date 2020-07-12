@@ -3,3 +3,7 @@ export interface Owner {
     firstName: string,
     lastName: string,
 }
+
+export interface OwnerById {
+    [key: string]: Owner,
+}
