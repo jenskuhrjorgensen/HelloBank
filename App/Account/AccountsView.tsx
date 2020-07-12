@@ -1,27 +1,27 @@
 import * as React from "react"
-import {RefreshControl, ScrollView, StyleSheet, Text, View} from "react-native"
+import {FlatList, RefreshControl, StyleSheet, View} from "react-native"
+import {AccountCellItem} from "./AccountCellItem"
 
 interface Props {
     refreshing: boolean,
     onRefresh: () => void,
     accounts: Array<Account>,
+    onAccountPress: (accountId: string) => void,
 }
 
-export function AccountsView({refreshing, onRefresh, accounts}: Props) {
+export function AccountsView({onAccountPress, refreshing, onRefresh, accounts}: Props) {
 
     return (
         <View style={styles.container}>
-            <ScrollView
+            <FlatList<any>
+                data={accounts}
+                keyExtractor={account => account.id}
+                renderItem={({item}) => <AccountCellItem account={item} />}
                 refreshControl={
                     <RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>
                 }
             >
-                {accounts.map((account: Account, index: number) => {
-                    return (
-                        <Text key={index}>{account.name}</Text>
-                    )
-                })}
-            </ScrollView>
+            </FlatList>
         </View>
     )
 }
