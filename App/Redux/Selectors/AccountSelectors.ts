@@ -2,29 +2,29 @@ import {getAccountState} from "../States/AccountState"
 import {createSelector} from "reselect"
 import {createCachedSelector} from "re-reselect"
 import {NormalizerUtils} from "../../NormalizerUtils"
-import {Account, AccountById} from "../../Model/Account"
+import {Account} from "../../Model/Account"
 import {propertyOf} from "../../Utils"
 
-const accounts = (state) => getAccountState(state).accounts
-const accountsFilter = (state) => getAccountState(state).accountsFilter
+const selectAccounts = (state) => getAccountState(state).accounts
+export const selectAccountsFilter = (state) => getAccountState(state).accountsFilter
 
 export const selectAccountById = createCachedSelector(
-    [state => accounts(state), (state, props) => props.accountId],
-    (accounts: AccountById, accountId: string): Account | undefined => {
+    [state => selectAccounts(state), (state, props) => props.accountId],
+    (accounts, accountId): Account | undefined => {
         return accounts[accountId]
     }
 )((_state_, props) => props.accountId)
 
 export const selectAccountList = createSelector(
-    accounts,
-    (accounts: AccountById): Array<Account> => {
+    selectAccounts,
+    (accounts): Array<Account> => {
         return NormalizerUtils.normalizedObjectToArray(accounts)
     }
 )
 
 export const selectAccountListFiltered = createSelector(
-    selectAccountList, accountsFilter,
-    (accounts: Array<Account>, filter: string | null): Array<Account> => {
+    selectAccountList, selectAccountsFilter,
+    (accounts, filter): Array<Account> => {
         if (filter == null) return accounts
         return accounts.filter(filterByPropertiesFactory(filter, ACCOUNT_FILTER_PROPS), accounts)
     }
