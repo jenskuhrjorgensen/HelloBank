@@ -1,4 +1,4 @@
-export const ROUTES = {
-    accounts: "Accounts",
-    accountDetail: "Account details",
+export enum ROUTES {
+    accounts = "Accounts",
+    accountDetail = "Account details",
 }

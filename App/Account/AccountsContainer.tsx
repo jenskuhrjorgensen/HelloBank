@@ -7,10 +7,10 @@ import {selectAccountListFiltered} from "../Redux/Selectors/AccountSelectors"
 import {ROUTES} from "../Navigation/Routes"
 
 interface Props {
-
+    navigation: { push: Function },
 }
 
-export function AccountContainer({navigation}: Props) {
+export function AccountsContainer({navigation}: Props) {
     const dispatch = useDispatch()
     useEffect(() => {
         getData()

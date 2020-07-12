@@ -1,14 +1,19 @@
 import * as React from "react"
-import {Text} from "react-native"
+import {useSelector} from "react-redux"
+import {Account} from "../Model/Account"
+import {selectAccountById} from "../Redux/Selectors/AccountSelectors"
+import {AccountDetailView} from "./AccountDetailView"
 
 interface Props {
-
+    route: { params: { accountId: string } },
 }
 
-export function AccountDetailContainer({}: Props) {
+export function AccountDetailContainer({route}: Props) {
+    const account: Account | undefined = useSelector(state => selectAccountById(state, {accountId: route.params.accountId}))
+    if (account == null) return null
     return (
-        <Text>
-            Details
-        </Text>
+        <AccountDetailView
+            account={account}
+        />
     )
 }

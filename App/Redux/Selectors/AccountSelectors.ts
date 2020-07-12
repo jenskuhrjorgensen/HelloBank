@@ -1,11 +1,19 @@
 import {getAccountState} from "../States/AccountState"
 import {createSelector} from "reselect"
+import {createCachedSelector} from "re-reselect"
 import {NormalizerUtils} from "../../NormalizerUtils"
 import {Account, AccountById} from "../../Model/Account"
 import {propertyOf} from "../../Utils"
 
 const accounts = (state) => getAccountState(state).accounts
 const accountsFilter = (state) => getAccountState(state).accountsFilter
+
+export const selectAccountById = createCachedSelector(
+    [state => accounts(state), (state, props) => props.accountId],
+    (accounts: AccountById, accountId: string): Account | undefined => {
+        return accounts[accountId]
+    }
+)((_state_, props) => props.accountId)
 
 export const selectAccountList = createSelector(
     accounts,
