@@ -3,24 +3,25 @@ import {StyleSheet, Text, TouchableOpacity} from "react-native"
 import {Account} from "../Model/Account"
 
 interface Props {
-    item: Account,
+    account: Account,
     onAccountPress: (accountId: string) => void
 }
 
-export function AccountCellItem({item, onAccountPress}: Props){
+export function AccountCellItem({account, onAccountPress}: Props){
     return (
         <TouchableOpacity
             style={styles.container}
-            onPress={() => onAccountPress(item.id)}>
-            <Text>{item.name}</Text>
-            <Text>{item.balance}</Text>
+            onPress={() => onAccountPress(account.id)}>
+            <Text>{account.name}</Text>
+            <Text>{account.balance}</Text>
         </TouchableOpacity>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        height: 100,
+        height: 50,
+        flexDirection: "row",
         backgroundColor: "#fff",
         //alignItems: "center",
         justifyContent: "space-between",

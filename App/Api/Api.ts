@@ -1,5 +1,7 @@
 import {AccountById} from "../Model/Account"
 
+const DELAY = 1000
+
 export function fetchAccounts(): Promise<AccountById> {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -25,6 +27,6 @@ export function fetchAccounts(): Promise<AccountById> {
                     balance: 10.4,
                 },
             })
-        }, 0)
+        }, DELAY)
     })
 }

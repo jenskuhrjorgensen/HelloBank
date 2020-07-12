@@ -1,6 +1,8 @@
 import * as React from "react"
-import {FlatList, RefreshControl, StyleSheet, View} from "react-native"
+import {StyleSheet, View} from "react-native"
 import {AccountCellItem} from "./AccountCellItem"
+import {CustomList} from "../Components/Lists/CustomList"
+import {Account} from "../Model/Account"
 
 interface Props {
     refreshing: boolean,
@@ -13,15 +15,13 @@ export function AccountsView({onAccountPress, refreshing, onRefresh, accounts}: 
 
     return (
         <View style={styles.container}>
-            <FlatList<any>
+            <CustomList<Account>
                 data={accounts}
                 keyExtractor={account => account.id}
-                renderItem={({item}) => <AccountCellItem account={item} />}
-                refreshControl={
-                    <RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>
-                }
-            >
-            </FlatList>
+                renderItem={({item}) => <AccountCellItem account={item} onAccountPress={onAccountPress}/>}
+                refreshing={refreshing}
+                onRefresh={onRefresh}
+            />
         </View>
     )
 }
@@ -30,7 +30,5 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#fff",
-        //alignItems: "center",
-        //justifyContent: "center",
     },
 })
