@@ -1,11 +1,12 @@
 import {AccountActions, AccountsSetAction} from "../Actions/ActionTypes"
+import {AccountById} from "../../Model/Account"
 
 interface AccountState {
-    accounts: Array<Account>,
+    accounts: AccountById,
 }
 
 const initialAccountState: AccountState = {
-    accounts: [],
+    accounts: {},
 }
 
 export function accountReducer(state: AccountState = initialAccountState, action: AccountsSetAction) {

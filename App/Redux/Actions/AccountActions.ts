@@ -1,7 +1,7 @@
 import {AccountAction, AccountActions} from "./ActionTypes"
-import {Account} from "../../Model/Account"
+import {AccountById} from "../../Model/Account"
 
-export function setAccounts(accounts: Array<Account>): AccountAction {
+export function setAccounts(accounts: AccountById): AccountAction {
     return {
         type: AccountActions.ACCOUNTS_SET,
         accounts: accounts,
