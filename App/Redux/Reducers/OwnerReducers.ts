@@ -1,13 +1,5 @@
-import {OwnerById} from "../../Model/Owner"
 import {OwnerActions} from "../Actions/OwnerActionTypes"
-
-export interface OwnerState {
-    owners: OwnerById,
-}
-
-const initialOwnerState: OwnerState = {
-    owners: {},
-}
+import {initialOwnerState, OwnerState} from "../States/OwnerState"
 
 export function ownerReducer(state: OwnerState = initialOwnerState, action: any) {
     switch (action.type) {

@@ -1,15 +1,5 @@
 import {AccountActions} from "../Actions/AccountActionTypes"
-import {AccountById} from "../../Model/Account"
-
-export interface AccountState {
-    accounts: AccountById,
-    accountsFilter: string | null,
-}
-
-const initialAccountState: AccountState = {
-    accounts: {},
-    accountsFilter: null,
-}
+import {AccountState, initialAccountState} from "../States/AccountState"
 
 export function accountReducer(state: AccountState = initialAccountState, action: any) {
     switch (action.type) {
