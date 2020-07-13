@@ -4,10 +4,18 @@ This project has been created using Expo. It can fetch a list of accounts belong
 
 **How to run the project:**
 
-Install dependencies
+Install dependencies:
 
 `yarn`
 
-Start expo
+Start expo:
 
 `expo start`
+
+Scan the QR code with the Expo app to run it on a physical device or follow the descriptions in the terminal to run it on an iOS or Android simulator.
+
+**Test**
+
+Tests can be run using:
+
+`yarn test`
