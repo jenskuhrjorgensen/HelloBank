@@ -1,8 +1,8 @@
 import React from "react"
 import {StyleSheet, View} from "react-native"
-import {Account} from "../Model/Account"
+import {Account, formatInterestRate} from "../Model/Account"
 import {Body1} from "../Components/Typography/Body1"
-import {Owner} from "../Model/Owner"
+import {formatOwnerName, Owner} from "../Model/Owner"
 import {ContentView} from "../Components/Layout/Content/ContentView"
 
 interface ItemProps {
@@ -28,11 +28,12 @@ export function AccountDetailView({account, owner}: AccountDetailViewProps) {
     return (
         <ContentView>
             <Item title={"Account name:"} value={account.name}/>
+            <Item title={"Description:"} value={account.description}/>
             <Item title={"Balance:"} value={"" + account.balance}/>
-            <Item title={"Owner:"} value={owner.firstName + " " + owner.lastName}/>
+            <Item title={"Owner:"} value={formatOwnerName(owner)}/>
             <Item title={"IBAN:"} value={"" + account.iban}/>
             <Item title={"Account number:"} value={"" + account.accountNumber}/>
-            <Item title={"Interest rate:"} value={"" + account.interestRate}/>
+            <Item title={"Interest rate:"} value={formatInterestRate(account.interestRate)}/>
         </ContentView>
     )
 }

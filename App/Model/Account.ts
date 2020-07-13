@@ -25,3 +25,7 @@ export interface Account {
 export interface AccountById {
     [key: string]: Account,
 }
+
+export function formatInterestRate(interestRate: number): string {
+    return interestRate * 100 + " %"
+}

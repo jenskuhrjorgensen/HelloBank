@@ -7,3 +7,7 @@ export interface Owner {
 export interface OwnerById {
     [key: string]: Owner,
 }
+
+export function formatOwnerName(owner: Owner): string {
+    return owner.lastName + ", " + owner.firstName
+}
