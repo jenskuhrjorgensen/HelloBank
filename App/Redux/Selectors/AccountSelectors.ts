@@ -19,7 +19,7 @@ export const selectAccountById = createCachedSelector(
 export const selectAccountList = createSelector(
     selectAccounts,
     (accounts): Array<Account> => {
-        return NormalizerUtils.normalizedObjectToArray(accounts)
+        return NormalizerUtils.normalizedObjectToArray(accounts).sort(sortAccountsByNameAscending)
     }
 )
 
@@ -47,4 +47,8 @@ export function filterByStringReduceFactory(obj: Object, filter: string) {
     return function (acc: boolean, propertyName: string): boolean {
         return obj[propertyName]?.toLowerCase().includes(lowerCaseFilter) || acc
     }
+}
+
+export function sortAccountsByNameAscending(a: Account, b: Account) {
+    return a.name.localeCompare(b.name, undefined, {ignorePunctuation: true})
 }
