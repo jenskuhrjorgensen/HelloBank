@@ -8,18 +8,20 @@ interface ButtonProps {
     iconName: string,
 }
 
+const ICON_SIZE = 32
+
 function ButtonLeft({onPress, iconName}: ButtonProps) {
     return (
-        <TouchableOpacity onPress={onPress} style={styles.leftIcon}>
-            <Ionicons name={iconName} size={32}/>
+        <TouchableOpacity onPress={onPress} style={[styles.button, styles.leftButton]}>
+            <Ionicons name={iconName} size={ICON_SIZE}/>
         </TouchableOpacity>
     )
 }
 
 function ButtonRight({onPress, iconName}: ButtonProps) {
     return (
-        <TouchableOpacity onPress={onPress} style={styles.rightIcon}>
-            <Ionicons name={iconName} size={32}/>
+        <TouchableOpacity onPress={onPress} style={[styles.button, styles.rightButton]}>
+            <Ionicons name={iconName} size={ICON_SIZE}/>
         </TouchableOpacity>
     )
 }
@@ -32,12 +34,12 @@ interface HeaderViewProps {
 function HeaderView({title, onSearchPress}: HeaderViewProps) {
     return (
         <>
-            <H1 style={styles.headerContent}>
+            <H1>
                 {title}
             </H1>
             <ButtonRight
                 onPress={onSearchPress}
-                iconName={"md-search"}
+                iconName={"ios-search"}
             />
         </>
     )
@@ -69,18 +71,18 @@ function SearchView({text, onChangeText, onClosePress, onClearPress}: SearchView
         <>
             <ButtonLeft
                 onPress={onClosePress}
-                iconName={"md-arrow-back"}
+                iconName={"ios-arrow-back"}
             />
             <TextInput
                 value={text}
                 autoFocus={true}
-                style={styles.headerContent}
+                style={styles.inputText}
                 placeholder={"Type to search"}
                 onChangeText={onChangeText}
             />
             <ButtonRight
                 onPress={onClearPress}
-                iconName={"md-close"}
+                iconName={"ios-close"}
             />
         </>
     )
@@ -115,20 +117,17 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
     },
-    headerContent: {
-        flex: 5,
+    inputText: {
+        flex: 1,
     },
-    icon: {
+    button: {
         width: 30,
+        flexDirection: "row",
     },
-    leftIcon: {
-        width: 30,
+    leftButton: {
         justifyContent: "flex-start",
-        flexDirection: "row",
     },
-    rightIcon: {
-        width: 30,
+    rightButton: {
         justifyContent: "flex-end",
-        flexDirection: "row",
     }
 })
