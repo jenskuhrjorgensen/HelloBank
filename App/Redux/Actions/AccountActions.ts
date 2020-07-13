@@ -1,6 +1,5 @@
 import {
     AccountActions,
-    AccountsFilterClearAction,
     AccountsFilterSetAction,
     AccountsSetAction,
     AccountsSetPendingSetAction
