@@ -8,6 +8,11 @@ export function accountReducer(state: AccountState = initialAccountState, action
                 ...state,
                 accounts: action.accounts
             }
+            case AccountActions.ACCOUNTS_SET_PENDING:
+            return {
+                ...state,
+                pending: action.pending
+            }
         case AccountActions.ACCOUNTS_FILTER_SET:
             return {
                 ...state,

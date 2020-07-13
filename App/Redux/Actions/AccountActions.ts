@@ -2,7 +2,8 @@ import {
     AccountActions,
     AccountsFilterClearAction,
     AccountsFilterSetAction,
-    AccountsSetAction
+    AccountsSetAction,
+    AccountsSetPendingSetAction
 } from "./AccountActionTypes"
 import {AccountById} from "../../Model/Account"
 import {fetchAccounts} from "../../Api/Api"
@@ -10,13 +11,22 @@ import {addOwners} from "./OwnerActions"
 
 export function getAccounts() {
     return (dispatch) => {
+        dispatch(setAccountsPending(true))
         return fetchAccounts().then(
             accountsNormalized => {
                 dispatch(setAccounts(accountsNormalized.entities.accounts))
                 dispatch(addOwners(accountsNormalized.entities.owners))
             },
             error => console.error(error)
-        )
+        ).finally(() => dispatch(setAccountsPending(false)))
+    }
+}
+
+// This should be replaced with something like redux-promise-middleware
+export function setAccountsPending(pending: boolean): AccountsSetPendingSetAction {
+    return {
+        type: AccountActions.ACCOUNTS_SET_PENDING,
+        pending: pending,
     }
 }
 

@@ -3,7 +3,7 @@ import {AccountBuilder} from "../Model/AccountBuilder"
 import {OwnerById} from "../Model/Owner"
 import {OwnerBuilder} from "../Model/OwnerBuilder"
 
-const DELAY = 1000
+const DELAY = 2000
 
 interface AccountsNormalized {
     result: Array<string>,
@@ -39,6 +39,83 @@ export function fetchAccounts(): Promise<AccountsNormalized> {
                             .build(),
                         "2": new AccountBuilder()
                             .id("2")
+                            .name("My other First account1")
+                            .description("Description")
+                            .balance(1000.2)
+                            .owner("1")
+                            .build(),
+                        "3": new AccountBuilder()
+                            .id("3")
+                            .name("My other First account1")
+                            .description("Description")
+                            .balance(1000.2)
+                            .owner("1")
+                            .build(),
+                        "4": new AccountBuilder()
+                            .id("4")
+                            .name("My other First account1")
+                            .description("Description")
+                            .balance(1000.2)
+                            .owner("1")
+                            .build(),
+                        "5": new AccountBuilder()
+                            .id("5")
+                            .name("My other First account1")
+                            .description("Description")
+                            .balance(1000.2)
+                            .owner("1")
+                            .build(),
+                        "6": new AccountBuilder()
+                            .id("6")
+                            .name("My other First account1")
+                            .description("Description")
+                            .balance(1000.2)
+                            .owner("1")
+                            .build(),
+                        "7": new AccountBuilder()
+                            .id("7")
+                            .name("My other First account1")
+                            .description("Description")
+                            .balance(1000.2)
+                            .owner("1")
+                            .build(),
+                        "8": new AccountBuilder()
+                            .id("8")
+                            .name("My other First account1")
+                            .description("Description")
+                            .balance(1000.2)
+                            .owner("1")
+                            .build(),
+                        "9": new AccountBuilder()
+                            .id("9")
+                            .name("My other First account1")
+                            .description("Description")
+                            .balance(1000.2)
+                            .owner("1")
+                            .build(),
+                        "10": new AccountBuilder()
+                            .id("10")
+                            .name("My other First account1")
+                            .description("Description")
+                            .balance(1000.2)
+                            .owner("1")
+                            .build(),
+                        "11": new AccountBuilder()
+                            .id("11")
+                            .name("My other First account1")
+                            .description("Description")
+                            .balance(1000.2)
+                            .owner("1")
+                            .build(),
+                        "12": new AccountBuilder()
+                            .id("12")
+                            .name("My other First account1")
+                            .description("Description")
+                            .balance(1000.2)
+                            .owner("1")
+                            .build(),
+                        "13": new AccountBuilder()
+                            .id("13")
                             .name("My other First account1")
                             .description("Description")
                             .balance(1000.2)

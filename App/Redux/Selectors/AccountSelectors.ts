@@ -7,6 +7,7 @@ import {propertyOf} from "../../Utils"
 
 const selectAccounts = (state) => getAccountState(state).accounts
 export const selectAccountsFilter = (state) => getAccountState(state).accountsFilter
+export const selectAccountsPending = (state) => getAccountState(state).pending
 
 export const selectAccountById = createCachedSelector(
     [state => selectAccounts(state), (state, props) => props.accountId],

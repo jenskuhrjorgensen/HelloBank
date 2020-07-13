@@ -3,7 +3,7 @@ import {useEffect} from "react"
 import {AccountsView} from "./AccountsView"
 import {useDispatch, useSelector} from "react-redux"
 import {getAccounts} from "../Redux/Actions/AccountActions"
-import {selectAccountListFiltered} from "../Redux/Selectors/AccountSelectors"
+import {selectAccountListFiltered, selectAccountsPending} from "../Redux/Selectors/AccountSelectors"
 import {ROUTES} from "../Navigation/Routes"
 
 interface Props {
@@ -16,6 +16,7 @@ export function AccountsContainer({navigation}: Props) {
         getData()
     }, [])
     const accounts = useSelector(selectAccountListFiltered)
+    const pending = useSelector(selectAccountsPending)
 
     const getData = () => {
         dispatch(getAccounts())
@@ -29,10 +30,9 @@ export function AccountsContainer({navigation}: Props) {
         navigation.push(ROUTES.accountDetail, {accountId: accountId})
     }
 
-    const refreshing = accounts.length < 1 // Simplified!
     return (
         <AccountsView
-            refreshing={refreshing}
+            refreshing={pending}
             onRefresh={onRefresh}
             accounts={accounts}
             onAccountPress={onAccountPress}
