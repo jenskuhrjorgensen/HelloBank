@@ -19,6 +19,10 @@ export function AccountsSearchHeaderContainer({title}: Props) {
         dispatch(clearSearchFilter())
     }
 
+    const onClearPress = () => {
+        onChangeText("")
+    }
+
     const onSearchPress = () => {
         dispatch(setAccountsSearchFilter(""))
     }
@@ -29,6 +33,7 @@ export function AccountsSearchHeaderContainer({title}: Props) {
             filterText={accountsFilter}
             onChangeText={onChangeText}
             onClosePress={onClosePress}
+            onClearPress={onClearPress}
             onSearchPress={onSearchPress}
         />
     )

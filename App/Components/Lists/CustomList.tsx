@@ -1,6 +1,7 @@
 import React from "react"
 import {FlatList, FlatListProps, RefreshControl, StyleSheet, View} from "react-native"
 import {H2} from "../Typography/H2"
+import {getTheme} from "../../Theme/Theme"
 
 function NoContent() {
     return (
@@ -40,9 +41,9 @@ const styles = StyleSheet.create({
     },
     contentContainerStyle: {
         flexGrow: 1,
+        paddingHorizontal: getTheme().spacings.m,
     },
     noContentContainer: {
-        backgroundColor: "green",
         flex: 1,
         alignItems: "center",
         justifyContent: "center",

@@ -8,6 +8,11 @@ interface Theme {
         h2: Typography,
         subtitle1: Typography,
         body1: Typography,
+    },
+    spacings: {
+        s: number,
+        m: number,
+        l: number,
     }
 }
 
@@ -25,6 +30,11 @@ const DefaultTheme = {
         body1: {
             fontSize: 14,
         },
+    },
+    spacings: {
+        s: 4,
+        m: 12,
+        l: 20,
     }
 }
 
