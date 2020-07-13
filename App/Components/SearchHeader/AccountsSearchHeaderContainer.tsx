@@ -3,10 +3,13 @@ import React from "react"
 import {useDispatch, useSelector} from "react-redux"
 import {setAccountsSearchFilter} from "../../Redux/Actions/AccountActions"
 import {selectAccountsFilter} from "../../Redux/Selectors/AccountSelectors"
+import {LayoutAnimation} from "react-native"
 
 interface Props {
     title: string | undefined,
 }
+
+const inOutAnimation = LayoutAnimation.Presets.easeInEaseOut
 
 export function AccountsSearchHeaderContainer({title}: Props) {
     const dispatch = useDispatch()
@@ -16,6 +19,7 @@ export function AccountsSearchHeaderContainer({title}: Props) {
     }
 
     const onClosePress = () => {
+        LayoutAnimation.configureNext(inOutAnimation)
         dispatch(setAccountsSearchFilter(null))
     }
 
@@ -24,6 +28,7 @@ export function AccountsSearchHeaderContainer({title}: Props) {
     }
 
     const onSearchPress = () => {
+        LayoutAnimation.configureNext(inOutAnimation)
         dispatch(setAccountsSearchFilter(""))
     }
 
