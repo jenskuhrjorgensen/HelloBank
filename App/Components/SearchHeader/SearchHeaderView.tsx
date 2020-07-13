@@ -1,8 +1,11 @@
-import {BackHandler, StyleSheet, TextInput, TouchableOpacity, View} from "react-native"
+import {BackHandler, Dimensions, StyleSheet, TextInput, TouchableOpacity, View} from "react-native"
 import React, {useCallback} from "react"
 import {Ionicons} from "@expo/vector-icons"
 import {H1} from "../Typography/H1"
 import {useFocusEffect} from "@react-navigation/native"
+import {getTheme} from "../../Theme/Theme"
+
+const windowWidth = Dimensions.get("window").width
 
 interface ButtonProps {
     onPress: () => void,
@@ -68,7 +71,7 @@ function SearchView({text, onChangeText, onClosePress, onClearPress}: SearchView
                 BackHandler.removeEventListener("hardwareBackPress", onBackPress)
         }, [])
     )
-    
+
     return (
         <>
             <ButtonLeft
@@ -118,6 +121,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
+        width: windowWidth - getTheme().spacings.l,
     },
     inputText: {
         flex: 1,
