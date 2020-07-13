@@ -19,7 +19,8 @@ interface Theme {
 const DefaultTheme = {
     typographies: {
         h1: {
-            fontSize: 20,
+            fontSize: 18,
+            fontWeight: "bold",
         },
         h2: {
             fontSize: 18,

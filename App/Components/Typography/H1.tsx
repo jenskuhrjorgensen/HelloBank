@@ -1,5 +1,5 @@
-import {Text, TextProps} from "react-native"
-import React, {ReactChild, ReactChildren} from "react"
+import {StyleSheet, Text, TextProps} from "react-native"
+import React, {ReactChild} from "react"
 import {getTheme} from "../../Theme/Theme"
 
 interface Props extends TextProps {
@@ -9,8 +9,14 @@ interface Props extends TextProps {
 export function H1({style, ...rest}: Props) {
     return (
         <Text
-            style={[getTheme().typographies.h1, style,]}
+            style={[getTheme().typographies.h1, styles.container, style]}
             {...rest}
         />
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+})
