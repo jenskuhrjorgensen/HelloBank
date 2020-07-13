@@ -1,7 +1,8 @@
 import {BackHandler, StyleSheet, TextInput, TouchableOpacity, View} from "react-native"
-import React, {useEffect} from "react"
+import React, {useCallback} from "react"
 import {Ionicons} from "@expo/vector-icons"
 import {H1} from "../Typography/H1"
+import {useFocusEffect} from "@react-navigation/native"
 
 interface ButtonProps {
     onPress: () => void,
@@ -55,18 +56,19 @@ interface SearchViewProps {
 }
 
 function SearchView({text, onChangeText, onClosePress, onClearPress}: SearchViewProps) {
-    const backAction = () => {
+    const onBackPress = () => {
         onClosePress()
         return true
     }
 
-    useEffect(() => {
-        BackHandler.addEventListener("hardwareBackPress", backAction)
-
-        return () =>
-            BackHandler.removeEventListener("hardwareBackPress", backAction)
-    }, [])
-
+    useFocusEffect(
+        useCallback(() => {
+            BackHandler.addEventListener("hardwareBackPress", onBackPress)
+            return () =>
+                BackHandler.removeEventListener("hardwareBackPress", onBackPress)
+        }, [])
+    )
+    
     return (
         <>
             <ButtonLeft
