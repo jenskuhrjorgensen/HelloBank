@@ -24,7 +24,6 @@ export function CustomList<Item>({data, refreshing, onRefresh, ...rest}: CustomL
             contentContainerStyle={styles.contentContainerStyle}
             ItemSeparatorComponent={() => <View style={styles.separator}/>}
             ListFooterComponent={() => hasData ? <View style={styles.separator}/> : null}
-            ListHeaderComponent={() => hasData ? <View style={styles.separator}/> : null}
             ListEmptyComponent={() => <NoContent/>}
             refreshControl={
                 <RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>

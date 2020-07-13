@@ -9,10 +9,10 @@ export class AccountBuilder {
             name: "",
             description: "",
             balance: 0,
-            accountNumber: 0,
-            iban: 0,
+            accountNumber: Math.round(Math.random()*10000000),
+            iban: 4321,
             owner: "",
-            interestRate: 0,
+            interestRate: 0.4,
         }
     }
 

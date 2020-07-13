@@ -25,21 +25,21 @@ export function fetchAccounts(): Promise<AccountsNormalized> {
                     accounts: {
                         "0": new AccountBuilder()
                             .id("0")
-                            .name("My First account1")
+                            .name("Savings")
                             .description("Description")
                             .balance(123.4)
                             .owner("0")
                             .build(),
                         "1": new AccountBuilder()
                             .id("1")
-                            .name("My First account1")
+                            .name("Check")
                             .description("Description")
                             .balance(-234.4)
                             .owner("0")
                             .build(),
                         "2": new AccountBuilder()
                             .id("2")
-                            .name("My other First account1")
+                            .name("Real estate")
                             .description("Description")
                             .balance(1000.2)
                             .owner("1")
@@ -123,8 +123,8 @@ export function fetchAccounts(): Promise<AccountsNormalized> {
                             .build(),
                     },
                     owners: {
-                        "0": new OwnerBuilder().firstName("John").build(),
-                        "1": new OwnerBuilder().firstName("Paul").build(),
+                        "0": new OwnerBuilder().firstName("John").lastName("Doe").build(),
+                        "1": new OwnerBuilder().firstName("Paul").lastName("Rudd").build(),
                     }
                 }
             })
