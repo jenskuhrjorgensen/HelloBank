@@ -37,15 +37,9 @@ export function setAccounts(accounts: AccountById): AccountsSetAction {
     }
 }
 
-export function setAccountsSearchFilter(filter: string): AccountsFilterSetAction {
+export function setAccountsSearchFilter(filter: string | null): AccountsFilterSetAction {
     return {
         type: AccountActions.ACCOUNTS_FILTER_SET,
         filter: filter,
-    }
-}
-
-export function clearSearchFilter(): AccountsFilterClearAction {
-    return {
-        type: AccountActions.ACCOUNTS_FILTER_CLEAR,
     }
 }

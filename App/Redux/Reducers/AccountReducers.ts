@@ -8,7 +8,7 @@ export function accountReducer(state: AccountState = initialAccountState, action
                 ...state,
                 accounts: action.accounts
             }
-            case AccountActions.ACCOUNTS_SET_PENDING:
+        case AccountActions.ACCOUNTS_SET_PENDING:
             return {
                 ...state,
                 pending: action.pending
@@ -17,11 +17,6 @@ export function accountReducer(state: AccountState = initialAccountState, action
             return {
                 ...state,
                 accountsFilter: action.filter,
-            }
-        case AccountActions.ACCOUNTS_FILTER_CLEAR:
-            return {
-                ...state,
-                accountsFilter: null,
             }
         default:
             return state

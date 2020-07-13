@@ -1,7 +1,7 @@
 import {SearchHeaderView} from "./SearchHeaderView"
 import React from "react"
 import {useDispatch, useSelector} from "react-redux"
-import {clearSearchFilter, setAccountsSearchFilter} from "../../Redux/Actions/AccountActions"
+import {setAccountsSearchFilter} from "../../Redux/Actions/AccountActions"
 import {selectAccountsFilter} from "../../Redux/Selectors/AccountSelectors"
 
 interface Props {
@@ -16,11 +16,11 @@ export function AccountsSearchHeaderContainer({title}: Props) {
     }
 
     const onClosePress = () => {
-        dispatch(clearSearchFilter())
+        dispatch(setAccountsSearchFilter(null))
     }
 
     const onClearPress = () => {
-        onChangeText("")
+        dispatch(setAccountsSearchFilter(""))
     }
 
     const onSearchPress = () => {
