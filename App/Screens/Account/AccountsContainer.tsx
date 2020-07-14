@@ -2,9 +2,9 @@ import * as React from "react"
 import {useEffect} from "react"
 import {AccountsView} from "./AccountsView"
 import {useDispatch, useSelector} from "react-redux"
-import {getAccounts} from "../Redux/Actions/AccountActions"
-import {selectAccountListFiltered, selectAccountsPending} from "../Redux/Selectors/AccountSelectors"
-import {ROUTES} from "../Navigation/Routes"
+import {getAccounts} from "../../Redux/Actions/AccountActions"
+import {selectAccountListFiltered, selectAccountsPending} from "../../Redux/Selectors/AccountSelectors"
+import {ROUTES} from "../../Navigation/Routes"
 
 interface Props {
     navigation: { push: Function },

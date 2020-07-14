@@ -1,9 +1,9 @@
 import React from "react"
 import {StyleSheet, View} from "react-native"
-import {Account, formatInterestRate} from "../Model/Account"
-import {Body1} from "../Components/Typography/Body1"
-import {formatOwnerName, Owner} from "../Model/Owner"
-import {ContentView} from "../Components/Layout/Content/ContentView"
+import {Account, formatInterestRate} from "../../Model/Account"
+import {Body1} from "../../Components/Typography/Body1"
+import {formatOwnerName, Owner} from "../../Model/Owner"
+import {ContentView} from "../../Components/Layout/Content/ContentView"
 
 interface ItemProps {
     title: string,

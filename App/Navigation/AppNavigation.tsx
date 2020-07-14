@@ -1,8 +1,8 @@
 import * as React from "react"
 import {NavigationContainer} from "@react-navigation/native"
 import {createStackNavigator} from "@react-navigation/stack"
-import {AccountsContainer} from "../Account/AccountsContainer"
-import {AccountDetailContainer} from "../AccountDetail/AccountDetailContainer"
+import {AccountsContainer} from "../Screens/Account/AccountsContainer"
+import {AccountDetailContainer} from "../Screens/AccountDetail/AccountDetailContainer"
 import {ROUTES} from "./Routes"
 import {AccountsSearchHeaderContainer} from "../Components/SearchHeader/AccountsSearchHeaderContainer"
 

@@ -1,8 +1,8 @@
 import * as React from "react"
 import {StyleSheet, View} from "react-native"
 import {AccountCellItem} from "./AccountCellItem"
-import {CustomList} from "../Components/Lists/CustomList"
-import {Account} from "../Model/Account"
+import {CustomList} from "../../Components/Lists/CustomList"
+import {Account} from "../../Model/Account"
 
 interface Props {
     refreshing: boolean,

@@ -1,10 +1,10 @@
 import * as React from "react"
 import {useSelector} from "react-redux"
-import {Account} from "../Model/Account"
-import {selectAccountById} from "../Redux/Selectors/AccountSelectors"
+import {Account} from "../../Model/Account"
+import {selectAccountById} from "../../Redux/Selectors/AccountSelectors"
 import {AccountDetailView} from "./AccountDetailView"
-import {selectOwnerById} from "../Redux/Selectors/OwnerSelector"
-import {Owner} from "../Model/Owner"
+import {selectOwnerById} from "../../Redux/Selectors/OwnerSelector"
+import {Owner} from "../../Model/Owner"
 
 interface Props {
     route: { params: { accountId: string } },

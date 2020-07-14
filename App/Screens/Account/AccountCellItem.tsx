@@ -1,7 +1,7 @@
 import React from "react"
 import {StyleSheet, Text, TouchableOpacity} from "react-native"
-import {Account} from "../Model/Account"
-import {Body1} from "../Components/Typography/Body1"
+import {Account} from "../../Model/Account"
+import {Body1} from "../../Components/Typography/Body1"
 
 interface Props {
     account: Account,
